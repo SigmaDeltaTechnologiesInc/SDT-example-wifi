@@ -1,0 +1,11 @@
+# Directory
+BUILD
+BUILD/*
+mbed-os
+mbed-os/*
+easy-connect
+easy-connect/*
+
+# File type
+*.mbed
+*.py
