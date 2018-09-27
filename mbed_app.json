@@ -17,8 +17,8 @@
         },
         "SDT64B": {
             "network-interface": "WIFI_ESP8266",
-            "easy-connect.wifi-esp8266-tx": "PTD9",
-            "easy-connect.wifi-esp8266-rx": "PTD8"
+            "easy-connect.wifi-esp8266-tx": "PTC17",
+            "easy-connect.wifi-esp8266-rx": "PTC16"
         },
         "SDT32620B": {
             "network-interface": "WIFI_ESP8266",
