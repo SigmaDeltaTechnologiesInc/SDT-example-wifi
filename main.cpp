@@ -31,30 +31,35 @@
 
 /* Serial */
 #define BAUDRATE 9600
-Serial g_Serial_pc(USBTX, USBRX, BAUDRATE);
+Serial serial_pc(USBTX, USBRX, BAUDRATE);
 
 /* DigitalOut */
 #define LED_ON      0
 #define LED_OFF     1
-DigitalOut g_DO_LedRed(LED_RED, LED_OFF);
-DigitalOut g_DO_LedGreen(LED_GREEN, LED_OFF);
-DigitalOut g_DO_LedBlue(LED_BLUE, LED_OFF);
+DigitalOut do_ledRed(LED_RED, LED_OFF);
+DigitalOut do_ledGreen(LED_GREEN, LED_OFF);
+DigitalOut do_ledBlue(LED_BLUE, LED_OFF);
 
 /* Network */
-NetworkInterface* g_pNetwork;
+NetworkInterface* pNetwork;
 
 int main(void) {
-    g_Serial_pc.printf("< Sigma Delta Technologies Inc. >\n\r");
+    serial_pc.printf("< Sigma Delta Technologies Inc. >\n\r");
 
-    g_pNetwork = easy_connect(true);    // 1 argument, enable_logging (pass in true to log to serial port)
-    if (!g_pNetwork) {
-        g_Serial_pc.printf("Connecting to the network failed\n");
+    pNetwork = easy_connect(true);    // 1 argument, enable_logging (pass in true to log to serial port)
+    if (!pNetwork) {
+        serial_pc.printf("Connecting to the network failed\n");
         return 1;
     }
 
+    // serial_pc.printf("MAC : %s\n", pNetwork->get_mac_address());
+    // serial_pc.printf("IP : %s\n", pNetwork->get_ip_address());
+    serial_pc.printf("[           ] Netmask : %s\n", pNetwork->get_netmask());
+    serial_pc.printf("[           ] Gateway : %s\n", pNetwork->get_gateway());
+
     while(true) {
-        g_Serial_pc.printf("LED Toggle\n");
-        g_DO_LedBlue = !g_DO_LedBlue;
+        serial_pc.printf("LED Toggle\n");
+        do_ledBlue = !do_ledBlue;
         wait(1);                    // 1sec
     }
 
