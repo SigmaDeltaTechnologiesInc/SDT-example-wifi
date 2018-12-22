@@ -1,37 +1,23 @@
 {
     "config": {
-        "network-interface":{
-            "help": "options are ETHERNET, WIFI_ESP8266, WIFI_IDW0XX1, WIFI_ODIN, WIFI_RTW, WIFI_WIZFI310, WIFI_ISM43362, MESH_LOWPAN_ND, MESH_THREAD, CELLULAR_ONBOARD",
-            "value": null
-        },
         "wifi-ssid": {
-            "value": "\"ssid\""
+            "help": "WiFi SSID",
+            "value": "\"SSID\""
         },
         "wifi-password": {
-            "value": "\"password\""
+            "help": "WiFi Password",
+            "value": "\"Password\""
         }
     },
     "target_overrides": {
         "*": {
-            "easy-connect.wifi-esp8266-debug": true
+            "platform.stdio-convert-newlines": true,
+            "esp8266.provide-default" : true
         },
         "SDT64B": {
-            "network-interface": "WIFI_ESP8266",
-            "easy-connect.wifi-esp8266-tx": "PTC17",
-            "easy-connect.wifi-esp8266-rx": "PTC16"
-        },
-        "SDT32620B": {
-            "network-interface": "WIFI_ESP8266",
-            "easy-connect.wifi-esp8266-tx": "P0_1",
-            "easy-connect.wifi-esp8266-rx": "P0_0"
-        },
-        "SDT32625B": {
-            "network-interface": "WIFI_ESP8266",
-            "easy-connect.wifi-esp8266-tx": "P3_1",
-            "easy-connect.wifi-esp8266-rx": "P3_0"
-        },
-        "SDT8195B": {
-            "network-interface": "WIFI_RTW"
+            "target.network-default-interface-type": "WIFI",
+            "esp8266.tx": "PTC17",
+            "esp8266.rx": "PTC16"
         }
     }
 }

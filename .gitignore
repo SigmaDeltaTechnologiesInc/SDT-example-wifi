@@ -7,3 +7,5 @@ mbed-os/*
 # File type
 *.mbed
 *.py
+*.pyc
+!*.lib
