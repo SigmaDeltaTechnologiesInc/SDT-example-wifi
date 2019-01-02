@@ -6,6 +6,8 @@ Wi-Fi example for Mbed OS
 
 ### 1-1. Supported board
 - SDT64B with SDT3976C
+- SDT32620B with SDT3976C
+- SDT32625B with SDT3976C
 
 ### 1-2. Import the example code
 
